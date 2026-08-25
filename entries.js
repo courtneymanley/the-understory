@@ -22,6 +22,16 @@
 */
 
 const entries = [
+    {
+    id: "w1-01",
+    week: 1,
+    date: "2026-08-24",
+    image: "images/W01_D01_01_MMH.PNG",
+    alt: "NBC News segment on postpartum psychosis, referencing the Commonwealth v. Lindsay Clancy trial.",
+    tag: "spike",
+    placement: "below",
+    caption: "NBC news covers postpartum psychosis and ties it back to the Commonwealth vs. Lindsay Clancy trial."
+  },
   {
     id: "example-above",
     week: 0,
