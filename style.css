@@ -1,0 +1,265 @@
+/* ============================================================
+   THE UNDERSTORY — starter stylesheet
+   You don't need to touch this file to add new weekly entries
+   (that all happens in entries.js). Come back here later if you
+   want to change colors, fonts, or spacing.
+   ============================================================ */
+
+:root {
+  --bg: #f4efe4;         /* warm paper background */
+  --card-bg: #fbf8f1;    /* slightly lighter card surface */
+  --ink: #262620;        /* near-black, warm */
+  --muted-ink: #6b6a5f;  /* softened text */
+  --line: #d8d1bf;       /* hairline rules / borders */
+
+  --spike: #c1440e;      /* rust/alert — loud, sudden urgency */
+  --spike-ink: #fffaf5;
+  --thin: #5f6f52;       /* quiet moss-green — chronic, overlooked */
+
+  --serif: Georgia, "Iowan Old Style", "Palatino Linotype", "Book Antiqua", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--serif);
+  line-height: 1.5;
+}
+
+/* ---------- header ---------- */
+
+.site-header {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 3.5rem 1.5rem 2rem;
+  text-align: center;
+  border-bottom: 1px solid var(--line);
+}
+
+.eyebrow {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted-ink);
+  margin: 0 0 0.5rem;
+}
+
+.site-header h1 {
+  font-size: 2.6rem;
+  margin: 0 0 1rem;
+  letter-spacing: 0.01em;
+}
+
+.tagline {
+  color: var(--muted-ink);
+  font-size: 1.05rem;
+  max-width: 56ch;
+  margin: 0 auto 1.5rem;
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.25rem;
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  color: var(--muted-ink);
+}
+
+.legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* ---------- tags ---------- */
+
+.tag {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.22rem 0.55rem;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+
+.tag-spike {
+  background: var(--spike);
+  color: var(--spike-ink);
+}
+
+.tag-thin {
+  background: transparent;
+  color: var(--thin);
+  border: 1px dashed var(--thin);
+}
+
+/* ---------- weeks ---------- */
+
+main#log {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 5rem;
+}
+
+.week {
+  margin-bottom: 3.5rem;
+  padding-left: 1.25rem;
+  border-left: 3px solid var(--line);
+}
+
+.week-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.week-heading h2 {
+  font-size: 1.3rem;
+  margin: 0;
+}
+
+.day-tracker {
+  display: flex;
+  align-items: center;
+  gap: 0.32rem;
+}
+
+.day-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.day-dot-filled {
+  background: var(--ink);
+}
+
+.day-dot-gap {
+  background: transparent;
+  border: 1px solid var(--line);
+}
+
+.week-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+/* ---------- entry cards ---------- */
+
+.entry {
+  display: flex;
+  flex-direction: column;
+  background: var(--card-bg);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 0;
+}
+
+.entry img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.entry figcaption {
+  padding: 0.9rem 1rem 1.1rem;
+}
+
+.entry-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.entry-date {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  color: var(--muted-ink);
+}
+
+.entry-text {
+  margin: 0;
+  font-size: 0.98rem;
+  color: var(--ink);
+}
+
+/* placement: caption above image */
+.entry.placement-above figcaption { order: -1; }
+
+/* placement: caption beside image (side by side) */
+.entry.placement-beside {
+  flex-direction: row;
+  align-items: stretch;
+}
+.entry.placement-beside img {
+  width: 48%;
+  object-fit: cover;
+}
+.entry.placement-beside figcaption {
+  width: 52%;
+}
+@media (max-width: 560px) {
+  .entry.placement-beside {
+    flex-direction: column;
+  }
+  .entry.placement-beside img,
+  .entry.placement-beside figcaption {
+    width: 100%;
+  }
+}
+
+/* placement: caption overlaid on the image */
+.overlay-wrap {
+  position: relative;
+}
+.overlay-wrap img {
+  width: 100%;
+  display: block;
+}
+.overlay-wrap figcaption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1.5rem 1rem 1rem;
+  background: linear-gradient(to top, rgba(20, 18, 12, 0.88), rgba(20, 18, 12, 0));
+}
+.overlay-wrap figcaption .entry-text {
+  color: #f6f1e6;
+}
+.overlay-wrap figcaption .entry-date {
+  color: #d9d3c2;
+}
+
+/* ---------- footer ---------- */
+
+.site-footer {
+  text-align: center;
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  color: var(--muted-ink);
+  padding: 2rem 1rem 3rem;
+}
+
+.empty {
+  text-align: center;
+  color: var(--muted-ink);
+  font-family: var(--sans);
+}

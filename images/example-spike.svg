@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#efe2d3"/>
+  <rect x="0" y="0" width="800" height="10" fill="#c1440e"/>
+  <text x="40" y="60" font-family="Georgia, serif" font-size="26" fill="#262620">EXAMPLE</text>
+  <text x="40" y="95" font-family="Georgia, serif" font-size="26" fill="#262620">SCREENSHOT</text>
+</svg>
