@@ -36,7 +36,7 @@ const entries = [
     image: "images/W01_D01_01_PHARM.PNG",
     alt: "Coverage of an unregulated compounded GLP-1 drug sold outside clinical trials, with warnings from doctors about unknown purity and dosing.",
     tag: "thin",
-    placement: "overlay",
+    placement: "below",
     caption: "A new type of Ozempic has becoming popular, but doctors are warning that it is unregulated and is currently only available in clinical trials, but people are buying it on the black market with no true idea about efficacy, purity, or dosing."
   }
 ];
